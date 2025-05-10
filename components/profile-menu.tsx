@@ -151,7 +151,7 @@ const ProfileMenu = ({ className, size }: ProfileMenuProps) => {
                   <Link
                     onClick={() =>
                       signOut({
-                        callbackUrl: `${window.location.origin}`,
+                        callbackUrl: `${window.location.origin}/login`,
                       })
                     }
                     className="flex items-center px-3 py-2 text-sm duration-200 hover:bg-gray-200 dark:hover:bg-muted"

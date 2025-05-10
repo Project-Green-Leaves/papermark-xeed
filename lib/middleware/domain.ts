@@ -38,11 +38,17 @@ if (host === "dataroom.xeedgrp.co") {
     return NextResponse.redirect(new URL("/dashboard", req.url));
   }
 
-  // Check for login, register, etc. paths
-  if (path === "/login" || path === "/register" || path.startsWith("/dashboard") ||
-path.startsWith("/account") || path.startsWith("/settings") ||
-path.startsWith("/documents") || path.startsWith("/datarooms")) {
-    // For auth and app paths, just let them go through
+  // Check for login, register, verification, and app paths
+  if (path === "/login" || 
+      path === "/register" || 
+      path.startsWith("/verify") ||
+      path.startsWith("/dashboard") ||
+      path.startsWith("/account") || 
+      path.startsWith("/settings") ||
+      path.startsWith("/documents") || 
+      path.startsWith("/datarooms") ||
+      path.startsWith("/api/")) {
+    // For auth, verification and app paths, just let them go through
     return NextResponse.next();
   }
 }

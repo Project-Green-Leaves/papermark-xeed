@@ -21,15 +21,15 @@ const VerificationLinkEmail = ({
   return (
     <Html>
       <Head />
-      <Preview>Login to your Papermark account with a link</Preview>
+      <Preview>Login to your Xeed Dataroom account with a link</Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 max-w-[500px] rounded border border-solid border-gray-200 px-10 py-5">
             <Text className="mx-0 mb-8 mt-4 p-0 text-center text-2xl font-normal">
-              <span className="font-bold tracking-tighter">Papermark</span>
+              <span className="font-bold tracking-tighter">Xeed Dataroom</span>
             </Text>
             <Text className="mx-0 my-7 p-0 text-center text-xl font-semibold text-black">
-              Your Papermark Login Link
+              Your Xeed Dataroom Login Link
             </Text>
 
             <Text className="text-sm leading-6 text-black">
@@ -55,16 +55,15 @@ const VerificationLinkEmail = ({
               <Text className="text-xs">
                 © {new Date().getFullYear()}{" "}
                 <a
-                  href="https://www.papermark.com"
+                  href="https://dataroom.xeedgrp.co"
                   className="text-gray-400 no-underline visited:text-gray-400 hover:text-gray-400"
                   target="_blank"
                 >
-                  papermark.com
+                  dataroom.xeedgrp.co
                 </a>
               </Text>
               <Text className="text-xs">
-                If you have any feedback or questions about this email, simply
-                reply to it. I&apos;d love to hear from you!
+                If you have any questions about this email, please contact support.
               </Text>
             </Section>
           </Container>

@@ -177,7 +177,7 @@ export function NavUser() {
               <DropdownMenuItem
                 onClick={() =>
                   signOut({
-                    callbackUrl: `${window.location.origin}`,
+                    callbackUrl: `${window.location.origin}/login`,
                   })
                 }
               >
