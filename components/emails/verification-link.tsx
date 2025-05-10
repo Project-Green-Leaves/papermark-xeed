@@ -14,7 +14,7 @@ import {
 } from "@react-email/components";
 
 const VerificationLinkEmail = ({
-  url = "https://www.papermark.com",
+  url = "https://www.dataroom.xeedgrp.co",
 }: {
   url: string;
 }) => {
