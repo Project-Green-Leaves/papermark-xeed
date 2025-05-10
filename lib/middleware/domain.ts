@@ -6,30 +6,72 @@ export default async function DomainMiddleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
   const host = req.headers.get("host");
 
-  // If it's the root path, redirect to papermark.com/home
-  if (path === "/") {
-    if (host === "guide.permithealth.com") {
-      return NextResponse.redirect(
-        new URL("https://guide.permithealth.com/faq", req.url),
-      );
-    }
-
-    if (host === "fund.tradeair.in") {
-      return NextResponse.redirect(
-        new URL("https://tradeair.in/sv-fm-inbound", req.url),
-      );
-    }
-
-    if (host === "docs.pashupaticapital.com") {
-      return NextResponse.redirect(
-        new URL("https://www.pashupaticapital.com/", req.url),
-      );
-    }
-
+// If it's the root path, redirect to papermark.com/home
+if (path === "/") {
+  if (host === "guide.permithealth.com") {
     return NextResponse.redirect(
-      new URL("https://www.papermark.com/home", req.url),
+      new URL("https://guide.permithealth.com/faq", req.url),
     );
   }
+
+  if (host === "fund.tradeair.in") {
+    return NextResponse.redirect(
+      new URL("https://tradeair.in/sv-fm-inbound", req.url),
+    );
+  }
+
+  if (host === "docs.pashupaticapital.com") {
+    return NextResponse.redirect(
+      new URL("https://www.pashupaticapital.com/", req.url),
+    );
+  }
+
+  return NextResponse.redirect(
+    new URL("https://www.papermark.com/home", req.url),
+  );
+}
+
+// Special handling for dataroom.xeedgrp.co
+if (host === "dataroom.xeedgrp.co") {
+  if (path === "/") {
+    // Redirect root to dashboard
+    return NextResponse.redirect(new URL("/dashboard", req.url));
+  }
+
+  // Check for login, register, etc. paths
+  if (path === "/login" || path === "/register" || path.startsWith("/dashboard") ||
+path.startsWith("/account") || path.startsWith("/settings") ||
+path.startsWith("/documents") || path.startsWith("/datarooms")) {
+    // For auth and app paths, just let them go through
+    return NextResponse.next();
+  }
+}
+
+// Handle other custom domains
+if (path === "/") {
+  if (host === "guide.permithealth.com") {
+    return NextResponse.redirect(
+      new URL("https://guide.permithealth.com/faq", req.url),
+    );
+  }
+
+  if (host === "fund.tradeair.in") {
+    return NextResponse.redirect(
+      new URL("https://tradeair.in/sv-fm-inbound", req.url),
+    );
+  }
+
+  if (host === "docs.pashupaticapital.com") {
+    return NextResponse.redirect(
+      new URL("https://www.pashupaticapital.com/", req.url),
+    );
+  }
+
+  // Don't redirect to papermark.com anymore, instead use the current host
+  const url = req.nextUrl.clone();
+  url.pathname = "/dashboard";
+  return NextResponse.redirect(url);
+}
 
   const url = req.nextUrl.clone();
 
