@@ -54,6 +54,7 @@ export default async function handle(
         const defaultTeam = await prisma.team.create({
           data: {
             name: defaultTeamName,
+            plan: "datarooms-plus", // Set default plan to datarooms-plus
             users: {
               create: {
                 userId: user.id,
@@ -94,6 +95,7 @@ export default async function handle(
       const newTeam = await prisma.team.create({
         data: {
           name: team,
+          plan: "datarooms-plus", // Set default plan to datarooms-plus
           users: {
             create: {
               userId: user.id,

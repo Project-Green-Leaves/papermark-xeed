@@ -186,6 +186,26 @@ export const authOptions: NextAuthOptions = {
         event: "User Signed In",
         email: message.user.email,
       });
+      
+      // Ensure user teams are on datarooms-plus plan
+      try {
+        const userTeams = await prisma.userTeam.findMany({
+          where: { userId: message.user.id },
+          include: { team: true },
+        });
+        
+        // Update any teams the user is part of that aren't on datarooms-plus plan
+        for (const userTeam of userTeams) {
+          if (userTeam.team.plan !== "datarooms-plus") {
+            await prisma.team.update({
+              where: { id: userTeam.teamId },
+              data: { plan: "datarooms-plus" }
+            });
+          }
+        }
+      } catch (error) {
+        console.error("Failed to update team plans:", error);
+      }
     },
   },
 };
