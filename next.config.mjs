@@ -177,6 +177,9 @@ function prepareRemotePatterns() {
     { protocol: "https", hostname: "app.papermark.io" },
     { protocol: "https", hostname: "www.papermark.com" },
     { protocol: "https", hostname: "app.papermark.com" },
+    // xeed img
+    { protocol: "https", hostname: "xeedgroup.co" },
+    { protocol: "https", hostname: "www.xeedgroup.co" },
     // useragent img
     { protocol: "https", hostname: "faisalman.github.io" },
     // special document pages

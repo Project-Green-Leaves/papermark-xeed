@@ -46,21 +46,21 @@ export const sendEmail = async ({
   const fromAddress =
     from ??
     (marketing
-      ? "Marc from Papermark <marc@ship.papermark.io>"
+      ? "Xeed <info@xeedgroup.co>"
       : system
-        ? "Papermark <system@papermark.io>"
+        ? "Xeed <system@xeedgroup.co>"
         : verify
-          ? "Papermark <system@verify.papermark.io>"
+          ? "Xeed <system@xeedgroup.co>"
           : !!scheduledAt
-            ? "Marc Seitz <marc@papermark.io>"
-            : "Marc from Papermark <marc@papermark.io>");
+            ? "Xeed <info@xeedgroup.co>"
+            : "Xeed <info@xeedgroup.co>");
 
   try {
     const { data, error } = await resend.emails.send({
       from: fromAddress,
       to: test ? "delivered@resend.dev" : to,
       cc: cc,
-      replyTo: marketing ? "marc@papermark.io" : replyTo,
+      replyTo: marketing ? "info@xeedgroup.co" : replyTo,
       subject,
       react,
       scheduledAt,

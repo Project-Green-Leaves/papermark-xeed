@@ -27,7 +27,7 @@ export default async function DomainMiddleware(req: NextRequest) {
     }
 
     return NextResponse.redirect(
-      new URL("https://www.papermark.com/home", req.url),
+      new URL("https://xeedgroup.co/home", req.url),
     );
   }
 
@@ -47,7 +47,7 @@ export default async function DomainMiddleware(req: NextRequest) {
     headers: {
       "X-Robots-Tag": "noindex",
       "X-Powered-By":
-        "Papermark.io - Document sharing infrastructure for the modern web",
+        "Xeed - Document sharing infrastructure for the modern web",
     },
   });
 }
