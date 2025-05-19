@@ -3,9 +3,9 @@ import { prismaExtension } from "@trigger.dev/build/extensions/prisma";
 import { defineConfig, timeout } from "@trigger.dev/sdk/v3";
 
 export default defineConfig({
-  project: "proj_plmsfqvqunboixacjjus",
+  project: "proj_qxrfzooyedlhanqdtvqs",
   dirs: ["./lib/trigger"],
-  maxDuration: timeout.None, // no max duration
+  maxDuration: 300, // no max duration
   retries: {
     enabledInDev: false,
     default: {
