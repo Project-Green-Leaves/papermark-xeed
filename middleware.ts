@@ -25,7 +25,7 @@ function isCustomDomain(host: string) {
     (process.env.NODE_ENV !== "development" &&
       !(
         host?.includes("localhost") ||
-        host?.includes(process.env.DOMAIN || "papermark.io") ||
+        host?.includes(process.env.DOMAIN || "papermark.xeedgroup.co") ||
         host?.endsWith(".vercel.app")
       ))
   );
