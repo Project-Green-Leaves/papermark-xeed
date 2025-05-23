@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
  */
 export function generateTinybirdJWT() {
   // Your workspace ID from Tinybird
-  const workspaceId = "105ceecb-29a7-447c-952f-3907db59658d";
+  const workspaceId = "8e5a8ea4-ea61-4f8a-9c56-94d3fa5292a1";
   
   // Hard-coded admin token (without the 'p.' prefix)
   const adminToken = "eyJ1IjogIjhlNWE4ZWE0LWVhNjEtNGY4YS05YzU2LTk0ZDNmYTUyOTJhMSIsICJpZCI6ICIxMDVjZWVjYi0yOWE3LTQ0N2MtOTUyZi0zOTA3ZGI1OTY1OGQiLCAiaG9zdCI6ICJ1cy1lYXN0LWF3cyJ9.i8FRli3ydDLVHurICSMn2LZeaLVU-LvxJcY4CqvbvYE";
