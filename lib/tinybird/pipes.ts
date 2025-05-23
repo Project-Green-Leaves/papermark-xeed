@@ -10,6 +10,8 @@ console.log("Tinybird client:", {
   tokenExists: !!process.env.TINYBIRD_TOKEN
 });
 
+// Try using the admin token directly
+// This admin token is used directly from your environment variable
 const tb = new Tinybird({ 
   token: process.env.TINYBIRD_TOKEN!,
   baseUrl: "https://api.us-east.tinybird.co"
