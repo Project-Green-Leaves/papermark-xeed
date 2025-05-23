@@ -305,7 +305,10 @@ export default async function handler(
 
             if (link.documentId) {
               try {
-                const durationData = await getTotalLinkDuration({
+                console.log(`Attempting to fetch link duration for link ${link.id}`);
+                
+                // Log the parameters being used
+                const params = {
                   linkId: link.id,
                   documentId: link.documentId,
                   excludedViewIds: "", // Include all views
@@ -313,7 +316,11 @@ export default async function handler(
                   until: endStr
                     ? new Date(endStr).getTime()
                     : new Date().getTime(),
-                });
+                };
+                console.log("getTotalLinkDuration params:", params);
+                
+                const durationData = await getTotalLinkDuration(params);
+                console.log(`Link duration result for ${link.id}:`, durationData);
 
                 if (durationData.data && durationData.data[0]) {
                   const totalDuration = durationData.data[0].sum_duration;
@@ -322,7 +329,13 @@ export default async function handler(
                   avgDuration = durationFormat(avgDurationMs);
                 }
               } catch (error) {
-                console.error("Error fetching Tinybird data:", error);
+                // Handle unknown type errors
+                const errorObj = error instanceof Error 
+                  ? { message: error.message, stack: error.stack }
+                  : { rawError: String(error) };
+                
+                console.error(`Error fetching Tinybird data for link ${link.id}:`, errorObj);
+                // Continue with default avgDuration
               }
             }
 

@@ -4,6 +4,12 @@ import { z } from "zod";
 import { VIDEO_EVENT_TYPES } from "../constants";
 import { WEBHOOK_TRIGGERS } from "../webhook/constants";
 
+// Simple logging for Tinybird initialization
+console.log("Tinybird client:", {
+  baseUrl: "https://api.us-east.tinybird.co",
+  tokenExists: !!process.env.TINYBIRD_TOKEN
+});
+
 const tb = new Tinybird({ 
   token: process.env.TINYBIRD_TOKEN!,
   baseUrl: "https://api.us-east.tinybird.co"
