@@ -198,7 +198,7 @@ export default function DataroomNav({
                 className="text-sm"
                 dateTime={new Date(dataroom.lastUpdatedAt).toISOString()}
               >
-                {`Last updated ${formatDate(dataroom.lastUpdatedAt)}`}
+                {`Last updated ${formatDate(dataroom.updatedAt)}`}
               </time>
             </div>
           </div>
